@@ -88,7 +88,7 @@ const Tweeter = function () {
     };
 };
 
-const tweeter = Tweeter();
+// const tweeter = Tweeter();
 
 // tweeter.addPost("This is my own post!");
 // console.log(tweeter.getPosts());
