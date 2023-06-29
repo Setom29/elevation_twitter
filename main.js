@@ -4,10 +4,11 @@ const renderer = Renderer()
 renderer.renderPosts(tweeter.getPosts())
 
 const post = function(){
-    const val = $("input").val()
-    if (val !== ""){
-        tweeter.addPost(val)
+    const input = $("#input")
+    if (input.val() !== ""){
+        tweeter.addPost(input.val())
         renderer.renderPosts(tweeter.getPosts())
+        input.val('')
     }
 }
 
@@ -17,8 +18,11 @@ $("body").on('click', ".delete", function(){
 })
 
 $("body").on('click', ".comment", function(){
-    tweeter.addComment($(this).parents(".post").data().id, $(this).siblings("input").val())
-    renderer.renderPosts(tweeter.getPosts())
+    const input = $(this).siblings("input")
+    if (input.val() !== ""){ 
+        tweeter.addComment($(this).parents(".post").data().id, input.val())
+        renderer.renderPosts(tweeter.getPosts())
+    }
 })
 
 $("body").on('click', ".delete-comment", function(){
