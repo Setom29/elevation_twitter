@@ -59,7 +59,7 @@ const Tweeter = function () {
     };
 
     // function that receives a postID and text and pushes an object to the relevant post’s comments array
-    const addComment = function (text, postID) {
+    const addComment = function (postID, text) {
         let ind = _getInd(posts, postID)
         if (text !== undefined || ind !== -1) {
             commentIdCounter++
